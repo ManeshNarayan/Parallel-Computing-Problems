@@ -1,0 +1,19 @@
+** Author Names : Manesh Narayan K (2013B1A7542P), Kunal Todi (2013B3A7)
+** Library used : OMP
+
+The program assumes that all files have names in the format "File(i).txt", where i is a variable ranging from 0 to N-1.
+Parallelization has been achieved using omp library.
+
+The first problem aims to find the longest common subsequence and then compute the intersection of all the input files.
+The executable lcs runs the code sequentially and lcsparallel runs the code in parallel.
+
+No speedup was found due to massive overheads involved in threads. 
+
+Compile commands
+
+gcc LCSParallel.c -fopenmp -o lcsparallel
+gcc LCS.c -o lcs
+
+execution commands
+
+./lcs N K
