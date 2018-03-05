@@ -1,0 +1,71 @@
+/*
+// Parallel Computing CS F422
+// Submission for assignment 2
+//
+// Implementation of PageRank algorithm
+//
+// Authors - 
+//		Manesh Narayan K (2013B1A7542P)
+*/
+
+
+This is an implementation of PageRank in MPI. 
+
+
+Dataset :
+
+	1 All the datasets have been formulated under the assumption that a webpage will have 15 outbound links on an average( except for the case with 10 pages, where the assumption was that they have 5 outbound links each). 
+	2 The dataset was processed to remove self links. 
+	3 Test files are named according to the number of web pages as "DataX.txt", where X represents the number of webpages.
+	4 The dataset with 10000 webpages has been excluded from the final submission due to its large size.
+
+
+How to run :
+
+	1 Change the name of the dataset to be tested from "DataX.txt", with X being an integer, to "Data.txt". (This is required to be done manually due to the need to pass commandline arguments to mpi).
+	2 Run the commands "mpicc pagerank.c -lm -o pagerank" and then "time mpirun -np X ./pagerank", where X is the number of processes
+		OR
+	2 Run the makefile to get the time taken for 1 to 6 processes for the given dataset.
+
+
+Assumption :
+
+	1 The damping coefficient is 0.85
+	2 The value of epsilon is 0.00000001
+	3 The distribution of dataset has been specified earlier
+
+
+Results :
+
+	1 Process:
+
+		10 webpages		- 0.067s
+		100 webpages	- 0.142s 
+		1000 webpages	- 4.352s
+		10000 webpages	- 4m 1.8s
+
+	2 Process:
+
+		10 webpages		- 0.070s
+		100 webpages	- 0.103s
+		1000 webpages	- 2.456s
+		10000 webpages	- 2m 11.5s
+
+	4 Process:
+
+		10 webpages		- 0.072s
+		100 webpages	- 0.098s
+		1000 webpages	- 1.406s
+		10000 webpages	- 1m 15.5s
+
+
+	8 Process:
+
+		10 webpages		- 0.097s
+		100 webpages	- 0.100s
+		1000 webpages	- 1.121s
+		10000 webpages	- 1m 10.5s
+
+
+The image "DistributedMemoryPerformance.jpg", shows a graphical representation of the data.
+
